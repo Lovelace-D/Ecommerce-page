@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Mentor | E-commerce product page</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <div class="menu-bar">
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16">
+          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" fill="#69707D"/>
+        </svg>
+      </div>
+      <label id="logo">sneakers</label>
+      <ul class="nav-links">
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <div class="cart-container">
+        <svg id="shopping-cart" width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#69707D" fill-rule="nonzero"/>
+        </svg>
+        <div class="badge">0</div>
+      </div>
+      <img class="avatar" src="images/image-avatar.png" alt="avatar">
+    </div>
+  </nav>
+  
+  <div class="main">
+    <div class="img-carousel">
+      <img class="mainpic" src="images/image-product-1.jpg" alt="sneaker" onclick="openLightbox()">
+      <div class="carousel-cards">
+        <div class="thumbnail-container" onclick="changeMainImage(0)">
+          <img src="images/image-product-1-thumbnail.jpg" alt="thumbnail 1">
+        </div>
+        <div class="thumbnail-container" onclick="changeMainImage(1)">
+          <img src="images/image-product-2-thumbnail.jpg" alt="thumbnail 2">
+        </div>
+        <div class="thumbnail-container" onclick="changeMainImage(2)">
+          <img src="images/image-product-3-thumbnail.jpg" alt="thumbnail 3">
+        </div>
+        <div class="thumbnail-container" onclick="changeMainImage(3)">
+          <img src="images/image-product-4-thumbnail.jpg" alt="thumbnail 4">
+        </div>
+      </div>
+    </div>
+
+    <div class="product-info">
+      <p id="Company">Sneaker Company</p>
+      <h1 id="shoe-type">Fall Limited Edition Sneakers</h1>
+      <p id="shoe-description">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
+      
+      <div class="prices">
+        <div class="price-discount">
+          <p id="price">$125.00</p>
+          <p id="discount">50%</p>
+        </div>
+        <div id="initial-price">$250.00</div>
+      </div>
+      
+      <div id="selected-shoe-count">
+        <div class="plus-minus">
+          <button class="counter-btn" id="minus">
+            <svg width="12" height="4" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z" fill="#FF7E1B"/>
+            </svg>
+          </button>
+          <span class="number">0</span>
+          <button class="counter-btn" id="plus">
+            <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z" fill="#FF7E1B"/>
+            </svg>
+          </button>
+        </div>
+        <button class="addToCart">
+          <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="white" fill-rule="nonzero"/>
+          </svg>
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-content">
+    <div id="cart-title">
+      <h1>Cart</h1>
+    </div>
+    <div class="cart-body">
+      <h2 id="emptyCart">Your cart is empty</h2>
+      <div id="selected-shoe-info" style="display: none;">
+        <img id="cart-img" src="images/image-product-1-thumbnail.jpg" alt="cart item">
+        <div class="shoe-details">
+          <p>Fall Limited Edition Sneakers</p>
+          <div class="price-calculation">
+            $125.00 x <span id="quantity">0</span> <span class="total" id="finalPrice">$0.00</span>
+          </div>
+        </div>
+        <svg id="trash" width="14" height="16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 2.625V1.875C0 1.334.334 1 .875 1h3.5L5.219.281A.875.875 0 0 1 5.828 0h2.344c.228 0 .447.091.609.281L9.625 1h3.5c.541 0 .875.334.875.875v.75c0 .483-.392.875-.875.875H.875C.392 3.5 0 3.108 0 2.625ZM1 5.5c0-.483.392-.875.875-.875h10.25c.483 0 .875.392.875.875v9.688a1.313 1.313 0 0 1-1.312 1.312H2.312A1.313 1.313 0 0 1 1 15.188V5.5Z" fill="#C3CAD9" fill-rule="nonzero"/>
+        </svg>
+      </div>
+      <button id="checkoutBtn" style="display: none;">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" style="display: none;">
+    <div class="menu-close">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+        <path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/>
+      </svg>
+    </div>
+    <ul>
+      <li><a href="#">Collections</a></li>
+      <li><a href="#">Men</a></li>
+      <li><a href="#">Women</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightboxContainer">
+    <div class="lightbox-content">
+      <div class="close-lightbox">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/>
+        </svg>
+      </div>
+      
+      <div class="nav-arrow prev-arrow">
+        <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 1 3 9l8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/>
+        </svg>
+      </div>
+      
+      <div class="nav-arrow next-arrow">
+        <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+          <path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/>
+        </svg>
+      </div>
+      
+      <div class="lightbox-image">
+        <img src="images/image-product-1.jpg" alt="lightbox image">
+      </div>
+      
+      <div class="lightbox-thumbnails">
+        <div class="thumbnail-container" onclick="changeLightboxImage(0)">
+          <img src="images/image-product-1-thumbnail.jpg" alt="thumbnail 1">
+        </div>
+        <div class="thumbnail-container" onclick="changeLightboxImage(1)">
+          <img src="images/image-product-2-thumbnail.jpg" alt="thumbnail 2">
+        </div>
+        <div class="thumbnail-container" onclick="changeLightboxImage(2)">
+          <img src="images/image-product-3-thumbnail.jpg" alt="thumbnail 3">
+        </div>
+        <div class="thumbnail-container" onclick="changeLightboxImage(3)">
+          <img src="images/image-product-4-thumbnail.jpg" alt="thumbnail 4">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/lovelace-d/">dhieu</a>.
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
